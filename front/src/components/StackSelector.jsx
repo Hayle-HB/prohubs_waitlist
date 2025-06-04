@@ -2,7 +2,7 @@ import React from "react";
 
 const stacks = ["Frontend", "Backend", "UI/UX", "Mobile", "ML", "Other"];
 
-const StackSelector = ({ selectedStack, setSelectedStack }) => (
+const StackSelector = ({ selectedStack, setSelectedStack, disabled }) => (
   <div className="space-y-4">
     <p className="text-zinc-400 text-sm">Select your stack:</p>
     <div className="grid grid-cols-2 gap-2">
@@ -11,6 +11,7 @@ const StackSelector = ({ selectedStack, setSelectedStack }) => (
           key={stack}
           type="button"
           onClick={() => setSelectedStack(stack)}
+          disabled={disabled}
           className={`w-full px-4 py-2 rounded-lg font-medium border transition-all duration-200
             bg-white/10 text-white
             ${
@@ -21,6 +22,7 @@ const StackSelector = ({ selectedStack, setSelectedStack }) => (
             hover:border-white
             focus:outline-none
             active:border-white
+            disabled:opacity-50 disabled:cursor-not-allowed
           `}
         >
           {stack}
